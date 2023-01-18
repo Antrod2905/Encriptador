@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="UTF-8">     
+            <title>Encriptador Alura</title>
+            <link rel="stylesheet" href="reset.css">
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body id="color">
+            <header class="titulo">
+                <div>
+                    <h1>Encriptador</h1>
+                </div>
+            </header>
+            <main>
+                <div id="fondo" class="titulo">
+                    <ul class="palabra">
+                        <li>
+                            <h2>Escriba la palabra a Encriptar:</h2>
+                            <textarea class="inicio" id="input" cols="50" rows="10" placeholder="Introduce la Palabra a Codificar" 
+                            required onkeypress="return (event.charCode >= 97 && event.charCode <= 122)" ></textarea>
+                            <p></p>
+                            <button type="submit" value="Encriptar" class="boton" id="botonEncriptar">Encriptar</button>
+                            <button type="submit" value="Desencriptar" class="boton" id="botonDesencriptar">Desencriptar</button>
+                            
+                        </li>
+                    </ul>            
+                    <ul class="cambio">
+                        <li>
+                            <h2 class="cambioletra">    Resultado   </h2>
+                            <textarea class="final" id="ouput" cols="50" rows="10" placeholder="Texto desencriptado"></textarea>
+                            <p></p>
+                            <input type="button" value="Copiar" class="boton" id="botonCopiar">
+                        </li>
+                    </ul>
+                </div>
+            </main>
+        </body>
+            <script> 
+                document.querySelector("#input");
+                const palabraCambiar = document.querySelector("#input");
+                const palabraCambiada = document.querySelector("#ouput");
+                const botonEncriptar = document.querySelector("#botonEncriptar");
+                const botonDesencriptar = document.querySelector("#botonDesencriptar");
+                const botonCopiar = document.querySelector("#botonCopiar");
+                function Encriptar(){
+                    var mensaje = palabraCambiar.value;
+                    var mensajeEncriptado = mensaje .replaceAll("e","enter") .replaceAll("i","imes") .replaceAll("o","ober") .replaceAll("a","ai") .replaceAll("u","ufat");
+                    palabraCambiada.value = mensajeEncriptado;
+                }
+                function Desencriptar()
+                {
+                    var mensaje = palabraCambiar.value;
+                    var mensajeEncriptado = mensaje .replaceAll("enter","e") .replaceAll("imes","i") .replaceAll("ober","o") .replaceAll("ai","a") .replaceAll("ufat","u");
+                    palabraCambiada.value = mensajeEncriptado;
+                }
+                function copiar(t){
+                    t.preventDefault()
+                    let content = document.getElementById('ouput');
+                        content.select();
+                    let successful = document.execCommand('copy');
+                    }
+                botonEncriptar.onclick = Encriptar;
+                botonDesencriptar.onclick = Desencriptar;
+                botonCopiar.onclick = copiar;
+            </script>     
+        </body>  
+        <footer>
+            <p class= "footer" > Antonio Misael Rodriguez Solis</p>
+        </footer> 
+</html>
